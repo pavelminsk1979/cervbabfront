@@ -1,0 +1,23 @@
+.productsTable {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.productsTable th,
+.productsTable td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+.productsTable th {
+    background-color: #d1cece;
+}
+
+.nameCell {
+    white-space: normal; /* разрешаем перенос строк */
+    word-break: break-word; /* для старых браузеров */
+    overflow-wrap: break-word; /* современный стандарт */
+    max-width: 150px; /* ограничение ширины колонки */
+}

@@ -1,0 +1,9 @@
+.common {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.redNumber {
+    color: #fd3e3e;
+}

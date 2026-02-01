@@ -1,0 +1,54 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 30px;
+}
+
+
+.StatisticProductFormAndCurrentBox {
+    display: flex;
+}
+
+.StatisticProductFormAndCurrentBox > * {
+    flex: 1;
+}
+
+.StatisticBlockAndProductForm {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 500px;
+}
+
+.nameTables {
+    display: flex;
+    gap: 30px;
+    padding-top: 20px;
+}
+
+.nameTables h3 {
+    cursor: pointer;
+    position: relative;
+    padding-bottom: 5px; /* пространство под полоску */
+}
+
+.nameTables h3.activeTab::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 100%;
+    background-color: #f85d5d;
+    border-radius: 2px;
+}
+
+/*.blocksProductFormAndCurrentBox {
+    display: flex;
+    justify-content: space-around;
+}
+
+.blocksProductFormAndCurrentBox > * {
+    flex: 1;
+}*/

@@ -1,0 +1,18 @@
+.blockCurrentBox {
+    flex: 1;
+}
+
+.blockListProducts {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+
+}
+
+.productItem {
+    white-space: normal; /* разрешаем перенос строк */
+    word-break: break-word; /* для старых браузеров */
+    overflow-wrap: break-word; /* современный стандарт */
+}
+

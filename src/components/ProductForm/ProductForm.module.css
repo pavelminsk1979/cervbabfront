@@ -1,0 +1,25 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.input {
+    width: 100%;
+    max-width: 400px;
+    height: 30px;
+    padding: 0 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+
+}
+
+.message {
+    color: #f66c6c;
+}
+
+.button {
+    width: 100%;
+    max-width: 400px;
+}
+
