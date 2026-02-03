@@ -1,3 +1,14 @@
+.common {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.searchInput {
+    height: 30px;
+    padding: 0 5px;
+}
+
 .productsTable {
     border: 1px solid #ccc;
     border-collapse: collapse;
@@ -16,8 +27,8 @@
 }
 
 .nameCell {
-    white-space: normal; /* разрешаем перенос строк */
-    word-break: break-word; /* для старых браузеров */
-    overflow-wrap: break-word; /* современный стандарт */
-    max-width: 150px; /* ограничение ширины колонки */
+    white-space: normal;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    max-width: 150px;
 }

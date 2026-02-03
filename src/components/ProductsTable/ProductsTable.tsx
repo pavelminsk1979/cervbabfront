@@ -1,72 +1,62 @@
 import styles from './ProductsTable.module.css';
-import {useEffect, useState} from "react";
-import {useDispatch, useSelector} from "react-redux";
-import type {Dispatch, RootState} from "../../store";
-import {setCountProducts, setData} from "../../store/products/products.actions.ts";
+import {useSelector} from "react-redux";
+import type {RootState} from "../../store";
 import type {ProductTeaser} from "../../types/products.ts";
-import {productsApi} from "../../api/productsApi.ts";
 import {ButtonRemoveProduct} from "../buttons/ButtonRemove/ButtonRemove.tsx";
+import {useEffect, useState} from "react";
+
 
 export const ProductsTable = () => {
+    const [search, setSearch] = useState('');
 
-    const dispatch = useDispatch<Dispatch>();
     const products = useSelector((s: RootState) => s.productsStore.products);
-    const [error, setError] = useState("");
-
 
     useEffect(() => {
-        const fetch = async () => {
-            if (products.length) return
-            try {
-                // const products: ProductTeaser[] = await productsApi.getAll();
-                const [products, countProducts] = await Promise.all([
-                    productsApi.getAll(),
-                    productsApi.getCountProducts(),
-                ]);
-                if (products.length) {
-                    dispatch(setData(products))
-                }
-                if (countProducts) {
-                    dispatch(setCountProducts(countProducts))
-                }
+        if (search.length) {
+            const timeout = setTimeout(() => setSearch(''), 0);
+            return () => clearTimeout(timeout);
+        }
+    }, [products]);
 
+    const filteredProducts = products.filter(p =>
+        p.name.toLowerCase().includes(search.toLowerCase())
+    );
 
-            } catch (e) {
-                console.log("ERROR-catch in file ProductsTable", e);
-                setError('Ошибка сервера')
-            }
-        };
-
-        fetch();
-    }, []);
-
+    const headerCleanSearchInput = () => {
+        setSearch('');
+    };
 
     return (
-        <table className={styles.productsTable}>
-            <thead>
-            <tr>
-                <th>Название продукта</th>
-                <th>Дата создания</th>
-                <th>Удалить</th>
-            </tr>
-            </thead>
-            <tbody>
-            {products?.length > 0 ? (
-                products.map((p: ProductTeaser) => (
-                    <tr key={p.id}>
-                        <td className={styles.nameCell}>{p.name}</td>
-                        <td>{new Date(p.createdAt).toLocaleString("ru-RU")}</td>
-                        <td><ButtonRemoveProduct idProduct={p.id}/></td>
-                    </tr>
-                ))
-            ) : (
+        <div className={styles.common}>
+            <input
+                className={styles.searchInput}
+                placeholder="Поиск продукта в таблице..."
+                value={search}
+                onChange={e => setSearch(e.target.value)}
+            />
+            <table className={styles.productsTable}>
+                <thead>
                 <tr>
-                    <td>
-                        {error ? error : <br/>}
-                    </td>
+                    <th>Название продукта</th>
+                    <th>Дата создания</th>
+                    <th>Удалить</th>
                 </tr>
-            )}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                {filteredProducts.length > 0 && (
+                    filteredProducts.map((p: ProductTeaser) => (
+                        <tr key={p.id}>
+                            <td className={styles.nameCell}>{p.name}</td>
+                            <td>{new Date(p.createdAt).toLocaleString("ru-RU")}</td>
+                            <td><ButtonRemoveProduct idProduct={p.id} headerCleanSearchInput={headerCleanSearchInput}/>
+                            </td>
+                        </tr>
+                    ))
+                )}
+                </tbody>
+            </table>
+        </div>
+
+
     )
 }

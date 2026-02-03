@@ -1,6 +1,5 @@
 import axios from 'axios';
-import type {ProductCount, ProductTeaser, ProductWithStatus} from "../types/products.ts";
-import type {ResponseStatus} from "../types/common.ts";
+import type {DeleteProduct, ItemsCount, ProductTeaser, ProductWithStatus} from "../types/products.ts";
 
 const apiUrl = import.meta.env.VITE_API_URL;
 
@@ -15,13 +14,13 @@ export const productsApi = {
         return response.data;
     },
 
-    getCountProducts: async (): Promise<ProductCount> => {
-        const response = await axios.get<ProductCount>(`${apiUrl}/products/count`);
+    getCountProducts: async (): Promise<ItemsCount> => {
+        const response = await axios.get<ItemsCount>(`${apiUrl}/products/count`);
         return response.data;
     },
 
-    delete: async (id: string): Promise<ResponseStatus> => {
-        const response = await axios.delete(`${apiUrl}/products/${id}`);
+    delete: async (id: string): Promise<DeleteProduct> => {
+        const response = await axios.delete<DeleteProduct>(`${apiUrl}/products/${id}`);
         return response.data;
     },
 

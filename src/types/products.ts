@@ -1,9 +1,5 @@
-export type Product = {
-    id: string;
-    name: string;
-    createdAt: string;
-    deletedAt: string | null;
-};
+import type {BoxTeaser} from "./boxes.ts";
+
 
 export type ProductTeaser = {
     id: string;
@@ -13,9 +9,27 @@ export type ProductTeaser = {
 
 export type ProductWithStatus = {
     status: number;
-    product: ProductTeaser
+    result: ResultProductAndBox | null;
 };
 
-export type ProductCount = {
-    countProducts: number
+export type ResultProductAndBox = {
+    product: ProductTeaser;
+    box: BoxTeaser;
 };
+
+
+export type ItemsCount = {
+    itemsCount: number
+};
+
+export type IdAndNameProducts = {
+    id: string;
+    name: string;
+};
+
+export type DeleteProduct = {
+    status: number;
+    idBox: string;
+};
+
+

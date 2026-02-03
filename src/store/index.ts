@@ -1,9 +1,13 @@
 import {configureStore} from "@reduxjs/toolkit";
 import productsReducer from "./products/products.reducer";
+import boxReducer from "./box/boxes.reducer.ts";
+import InitializedStore from "./initialized/initialized.reducer.ts"
 
 export const store = configureStore({
     reducer: {
         productsStore: productsReducer,
+        boxStore: boxReducer,
+        initializedStore: InitializedStore
     },
 });
 

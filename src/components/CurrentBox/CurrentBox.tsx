@@ -1,23 +1,20 @@
 import styles from './CurrentBox.module.css';
+import {useSelector} from "react-redux";
+import type {RootState} from "../../store";
+import type {BoxWithProductsTeaser} from "../../types/boxes.ts";
 
 export const CurrentBox = () => {
-    const productsForCorrectBox = [
-        {id: 1, name: 'dddddyyyyy'},
-        {id: 2, name: 'dddddgggggg'},
-        {id: 3, name: 'dddddbbbbbb нннннннннннннн ооооооооооооооо аааааааааааааааааааааа 7777777777777777777'},
-        {id: 4, name: 'ddddd555555ggggg99999999999999999999999999999999999999999999999999'},
-        {id: 5, name: 'dddddjjjjj'}
-    ]
+    const currentBoxWithProducts: BoxWithProductsTeaser | null = useSelector((s: RootState) => s.boxStore.currentBoxWithProducts);
 
-    const nameBox = 'beautifulBox'
+
     return (
         <div className={styles.blockCurrentBox}>
-            <h3>{`Текущая коробка : ${nameBox} `}</h3>
-
+            <h3>{`Название текущей коробки : ${currentBoxWithProducts ? currentBoxWithProducts.name : ''} `}</h3>
+            <h4 className={styles.titleListProducts}>Список продуктов:</h4>
             <div className={styles.blockListProducts}>
-                {productsForCorrectBox.map((el, index) => (
+                {currentBoxWithProducts?.products.map((el) => (
                     <div key={el.id} className={styles.productItem}>
-                        {index + 1}. {el.name}
+                        - {el.name}
                     </div>
                 ))}
             </div>

@@ -1,3 +1,4 @@
-export type ResponseStatus = {
-    status: number;
-};
+export type IdProductAndIdBox = {
+    idProduct: string;
+    idBox: string;
+}

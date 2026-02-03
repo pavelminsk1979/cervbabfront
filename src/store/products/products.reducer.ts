@@ -1,4 +1,4 @@
-import {setData, addProduct, removeProductById, setCountProducts} from './products.actions.ts'
+import {setData, addProduct, removeProductById, setCountProducts, removeProducts} from './products.actions.ts'
 import type {ProductTeaser} from "../../types/products.ts";
 import {createReducer} from "@reduxjs/toolkit";
 
@@ -30,7 +30,16 @@ export default createReducer(initialState, (builder) => {
         })
         .addCase(setCountProducts, (state, action) => {
 
-            state.countProducts = action.payload.countProducts
+            state.countProducts = action.payload.itemsCount
+
+        })
+        .addCase(removeProducts, (state, action) => {
+
+            state.countProducts -= action.payload.length
+
+            state.products = state.products.filter(
+                product => !action.payload.includes(product.id)
+            );
 
         })
 })

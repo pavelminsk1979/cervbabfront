@@ -30,7 +30,7 @@
 .nameTables h3 {
     cursor: pointer;
     position: relative;
-    padding-bottom: 5px; /* пространство под полоску */
+    padding-bottom: 5px;
 }
 
 .nameTables h3.activeTab::after {
@@ -44,11 +44,3 @@
     border-radius: 2px;
 }
 
-/*.blocksProductFormAndCurrentBox {
-    display: flex;
-    justify-content: space-around;
-}
-
-.blocksProductFormAndCurrentBox > * {
-    flex: 1;
-}*/
