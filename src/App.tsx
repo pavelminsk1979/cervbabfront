@@ -14,6 +14,7 @@ import type {ItemsCount, ProductTeaser} from "./types/products.ts";
 import {boxesApi} from "./api/boxesApi.ts";
 import {setBoxesWithProducts, setCountBoxes, setCurrentBox} from "./store/box/boxes.actions.ts";
 import type {BoxWithProductsTeaser} from "./types/boxes.ts";
+import {ButtonDownloadReport} from "./components/buttons/ButtonDownloadReport.tsx";
 
 
 export function App() {
@@ -69,7 +70,11 @@ export function App() {
 
     return (
         <div className={styles.main}>
-            <h2>Система управления продуктами</h2>
+            <div className={styles.blockHeaderAndButtonReport}>
+                <h2>Система управления продуктами</h2>
+                <ButtonDownloadReport/>
+            </div>
+
             <div className={styles.StatisticProductFormAndCurrentBox}>
                 <div className={styles.StatisticBlockAndProductForm}>
                     <StatisticBlock/>

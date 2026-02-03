@@ -1,10 +1,10 @@
 import {useState} from "react";
-import {productsApi} from "../../../api/productsApi.ts";
+import {productsApi} from "../../api/productsApi.ts";
 import {useDispatch} from "react-redux";
-import type {Dispatch} from "../../../store";
-import {removeProductById} from "../../../store/products/products.actions.ts";
-import type {DeleteProduct} from "../../../types/products.ts";
-import {removeProductForCorrectBox} from "../../../store/box/boxes.actions.ts";
+import type {Dispatch} from "../../store";
+import {removeProductById} from "../../store/products/products.actions.ts";
+import type {DeleteProduct} from "../../types/products.ts";
+import {removeProductForCorrectBox} from "../../store/box/boxes.actions.ts";
 
 type Props = {
     idProduct: string

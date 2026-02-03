@@ -2,8 +2,8 @@ import styles from './BoxesTable.module.css';
 import type {BoxWithProductsTeaser} from "../../types/boxes.ts";
 import {useSelector} from "react-redux";
 import type {RootState} from "../../store";
-import {ButtonRemoveBox} from "../buttons/ButtonRemove/ButtonRemoveBox.tsx";
 import {useEffect, useState} from "react";
+import {ButtonRemoveBox} from "../buttons/ButtonRemoveBox.tsx";
 
 
 export const BoxesTable = () => {

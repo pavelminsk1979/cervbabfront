@@ -5,6 +5,11 @@
     padding: 20px 30px;
 }
 
+.blockHeaderAndButtonReport {
+    display: flex;
+    flex-direction: row;
+    gap: 80px;
+}
 
 .StatisticProductFormAndCurrentBox {
     display: flex;

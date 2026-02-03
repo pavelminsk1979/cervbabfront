@@ -2,7 +2,7 @@ import styles from './ProductsTable.module.css';
 import {useSelector} from "react-redux";
 import type {RootState} from "../../store";
 import type {ProductTeaser} from "../../types/products.ts";
-import {ButtonRemoveProduct} from "../buttons/ButtonRemove/ButtonRemove.tsx";
+import {ButtonRemoveProduct} from "../buttons/ButtonRemove.tsx";
 import {useEffect, useState} from "react";
 
 

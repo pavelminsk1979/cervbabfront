@@ -1,10 +1,10 @@
 import {useState} from "react";
 import {useDispatch} from "react-redux";
-import type {Dispatch} from "../../../store";
-import {boxesApi} from "../../../api/boxesApi.ts";
-import {removeBoxById} from "../../../store/box/boxes.actions.ts";
-import type {DeleteBox} from "../../../types/boxes.ts";
-import {removeProducts} from "../../../store/products/products.actions.ts";
+import type {Dispatch} from "../../store";
+import {boxesApi} from "../../api/boxesApi.ts";
+import {removeBoxById} from "../../store/box/boxes.actions.ts";
+import type {DeleteBox} from "../../types/boxes.ts";
+import {removeProducts} from "../../store/products/products.actions.ts";
 
 type Props = {
     idBox: string
