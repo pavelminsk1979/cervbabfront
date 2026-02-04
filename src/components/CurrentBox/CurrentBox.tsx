@@ -14,7 +14,7 @@ export const CurrentBox = () => {
             <div className={styles.blockListProducts}>
                 {currentBoxWithProducts?.products.map((el) => (
                     <div key={el.id} className={styles.productItem}>
-                        - {el.name}
+                        {el.name}
                     </div>
                 ))}
             </div>
