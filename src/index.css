@@ -11,19 +11,58 @@
 }
 
 button {
-    padding: 0.3em 1.2em;
-    border-radius: 8px;
-    border: 1px solid #f1a7a7;
-    background-color: #f1a7a7;
-    color: #403e3e;
+    position: relative;
+    overflow: hidden;
+    padding: 0.45em 1.4em;
+    border-radius: 10px;
+    border: 1px solid #8ea59b;
+    background: linear-gradient(180deg, #c6d3cb 0%, #a3b6ab 100%);
+    color: #24312b;
     cursor: pointer;
-    transition: border-color 0.25s, background-color 0.25s;
+    box-shadow: 0 6px 14px rgba(36, 49, 43, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    transition: transform 0.12s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
 }
 
 button:hover {
-    border-color: #f68181;
-    background-color: #f68181;
-    color: #2c2c2c;
+    border-color: #7f968b;
+    background: linear-gradient(180deg, #cdd8d1 0%, #a9bcb2 100%);
+    box-shadow: 0 8px 18px rgba(36, 49, 43, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+button::before {
+    content: "";
+    position: absolute;
+    top: -60%;
+    left: -120%;
+    width: 60%;
+    height: 220%;
+    background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.5) 45%, transparent 70%);
+    transform: translateX(0) skewX(-20deg);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+}
+
+button:hover::before {
+    opacity: 1;
+    animation: button-sheen 0.7s ease;
+}
+
+button:active {
+    transform: translateY(1px) scale(0.98);
+    box-shadow: 0 4px 10px rgba(36, 49, 43, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+@keyframes button-sheen {
+    0% { transform: translateX(0) skewX(-20deg); }
+    100% { transform: translateX(260%) skewX(-20deg); }
 }
 
 a {

@@ -71,7 +71,7 @@ export function App() {
     return (
         <div className={styles.main}>
             <div className={styles.blockHeaderAndButtonReport}>
-                <h2>Система управления продуктами</h2>
+                <h2>Система управления продуктами(СиУпПр)</h2>
                 <ButtonDownloadReport/>
             </div>
 
